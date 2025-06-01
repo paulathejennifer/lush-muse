@@ -1,0 +1,136 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff0f5;
+    color: #f77cf7;
+    font-size: 2rem;
+}
+
+
+
+.hero-bg img{
+    width: 100%;
+    height:100vh;
+    object-fit: cover;
+    filter: brightness(0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+    padding: 10rem 2rem 4rem;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.hero-content h2{
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+    animation-delay: 0.2s;
+}
+.hero-content p{
+    padding-bottom: 2cm;
+    animation-delay: 0.4s;
+}
+.hero-content h2,
+.hero-content p,
+.cta-btn{
+    opacity: 0;
+    animation: fadeUp 1s ease-out forwards;
+}
+#lushmuse{
+    font-family: "Lobster", sans-serif;
+    color: white;
+}
+
+.cta-btn{
+    background-color: #d06c9b;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    display: inline-block;
+    transition: background 0.3s ease;
+    animation-delay: 0.6s;
+
+}
+.cta-btn:hover{
+    background-color:#b85985 ;
+}
+@keyframes fadeUp {
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+a{
+    text-decoration: none;
+
+    
+}
+
+.curve{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.welcome-message{
+    height: 100vh;
+    background-color: white;
+    padding: 4rem;
+    text-align: center;
+    color: black;
+}
+.scroll-down{
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    animation: bounce 2s infinite;
+    z-index: 3;
+}
+
+@keyframes bounce{
+    0%, 100%{
+        transform: translateX(-50%)translateY(0);
+    }
+    50%{
+           transform: translateX(-50%)translateY(-10px);
+    }
+}
+html{
+    scroll-behavior: smooth;
+}
+@media(max-width: 768px){
+    .hero-content{
+        padding: 7rem 1.5rem 3rem;
+        font-size: 0.95rem;
+    }
+    .hero h2{
+        font-size: 1rem;
+    }
+    .cta-btn{
+        padding: 0.65rem 1.5;
+    }
+}
+     
