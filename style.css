@@ -112,6 +112,66 @@ transition: color 0.2s;
     animation: pulse 1.2s infinite;
     color: #ff69b4;
 }
+#nextToReason{
+    display: none;
+    margin-top: 12px;
+}
+#reviewStep2{
+    display: none;
+}
+#reviewReason{
+    width: 100%;
+}
+.cta-btn-option{
+    display: none;
+}
+.cta-btn-review{
+    margin-top: 12px;
+}
+#reviewThanks{
+    display: none;
+    margin-top: 14px;
+}
+.home-review-modal{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.home-review-modal-content{
+    background-color: #fff;
+    padding: 24px 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    max-width: 340px;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+.home-review-modal-content .close{
+    position: absolute;
+    right: 18px;
+    top: 12px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#reviewModal label{
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#reviewStep2 textarea{
+resize: vertical;
+border-radius: 6px;
+border: 1px solid#ccc;
+font-family: inherit;
+padding: 8px;
+}
         .fab-container {
             position: fixed;
             bottom: 20px;

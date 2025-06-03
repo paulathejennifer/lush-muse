@@ -7,10 +7,10 @@
     <title>LushMuse</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
     <link rel="icon" href="images/favicon-16x16.png" id="image">
 </head>
@@ -20,67 +20,62 @@
     <header class="main-header">
 
 
-    <div class="fab-container">
-        <button class="fab main-fab"><i class="fa-solid fa-bars attention"></i></button>
-        <button class="fab tip-fab" title="Beauty Tip" onclick="showRandomTip()"><i class="fa-solid fa-lightbulb"></i></button>
-        <button class="fab cart-fab" title="Cart" onclick="showReviewPrompt()"><i class="fa-solid fa-cart-shopping"></i></button>
-    </div>
-    <div id="tipModal" class="home-modal">
-        <div class="home-modal-content">
-            <span class="close" onclick="closeTipModal()">&times;</span>
-            <p id="tipText"></p>
+        <div class="fab-container">
+            <button class="fab main-fab"><i class="fa-solid fa-bars attention"></i></button>
+            <button class="fab tip-fab" title="Beauty Tip" onclick="showRandomTip()"><i
+                    class="fa-solid fa-lightbulb"></i></button>
+            <button class="fab cart-fab" title="Cart" onclick="closeReviewModal()"><i
+                    class="fa-solid fa-cart-shopping"></i></button>
         </div>
-    </div>
-    <script>
-        const beautyTips = [
-            "Drink plenty of water for a glowing skin",
-            "Use a silk pillowcase to reduce hair frizz",
-            "Use a toner to balance your skin's pH",
-            "Store skincare in a cool, dry place",
-            "Always remove your makeup before sleeping",
-            "Use sunscreen daily, even when indoors",
-            "Moisturize your skin right after showering",
-            "Exfoliate twice a week for smooth skin",
-            "Get enough sleep - it's beauty sleep for a reason!",
-            "Eat fruits and veggies for healthy skin",
-            "Massage your face to boost blood circulation",
-            "Clean your makeup brushes weekly",
-            "Practice stress management - your skin will thank you!",
-            "Pat on eye cream to combat puffiness and dark circles",
-            "Exfoliate your lips using sugar scrub, thhen apply a hydrating balm",
-            "Massage coconut oil into your hair and leave it overnight for silky hair",
-            "Apply a nourishing foot cream and wear socks to soften rough reels overnight",
-            "Sleep in loose, breathable cotton pajamas to allow skin breathing",
-            "Change your beddingsregularly to avoid bacteria buildup and acne"
-        ];
+        <div id="tipModal" class="home-modal">
+            <div class="home-modal-content">
+                <span class="close" onclick="closeTipModal()">&times;</span>
+                <p id="tipText"></p>
+            </div>
+        </div>
+        <script>
+            const beautyTips = [
+                "Drink plenty of water for a glowing skin",
+                "Use a silk pillowcase to reduce hair frizz",
+                "Use a toner to balance your skin's pH",
+                "Store skincare in a cool, dry place",
+                "Always remove your makeup before sleeping",
+                "Use sunscreen daily, even when indoors",
+                "Moisturize your skin right after showering",
+                "Exfoliate twice a week for smooth skin",
+                "Get enough sleep - it's beauty sleep for a reason!",
+                "Eat fruits and veggies for healthy skin",
+                "Massage your face to boost blood circulation",
+                "Clean your makeup brushes weekly",
+                "Practice stress management - your skin will thank you!",
+                "Pat on eye cream to combat puffiness and dark circles",
+                "Exfoliate your lips using sugar scrub, then apply a hydrating balm",
+                "Massage coconut oil into your hair and leave it overnight for silky hair",
+                "Apply a nourishing foot cream and wear socks to soften rough reels overnight",
+                "Sleep in loose, breathable cotton pajamas to allow skin breathing",
+                "Change your beddingsregularly to avoid bacteria buildup and acne"
+            ];
 
-        function showRandomTip() {
-            const tip = beautyTips[Math.floor(Math.random() * beautyTips.length)];
-            document.getElementById('tipText').innerText = tip;
-            document.getElementById('tipModal').style.display = 'block';
-        }
+            function showRandomTip() {
+                const tip = beautyTips[Math.floor(Math.random() * beautyTips.length)];
+                document.getElementById('tipText').innerText = tip;
+                document.getElementById('tipModal').style.display = 'block';
+            }
 
-        function closeTipModal() {
-            document.getElementById('tipModal').style.display = 'none';
-        }
+            function closeTipModal() {
+                document.getElementById('tipModal').style.display = 'none';
+            }
 
-        function showReviewPrompt() {
-            setTimeout(() => {
-                const reviewed = confirm("🌟 How was your LushMuse experience? We'd love your feedback!");
-                if (reviewed) {
-                    alert("Thanks for your review!");
-                }
-            }, 500)
-        }
-    </script>
+
+        </script>
 
         <div class="contact-icons">
- <a href="mailto:paulathejennifer@gmail.com" title="Email Us">
-    <i class="fa-solid fa-envelope"></i>
-</a>
-<a href="tel:+254780325974" title="Call Us">
-    <i class="fa-solid fa-phone-volume"></i>
-</a>
+            <a href="mailto:paulathejennifer@gmail.com" title="Email Us">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="tel:+254780325974" title="Call Us">
+                <i class="fa-solid fa-phone-volume"></i>
+            </a>
 
         </div>
     </header>
@@ -98,17 +93,129 @@
         <svg class="curve" viewBox="0 0 1440 320">
             viewBox="0 0 1440 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
 
-  <path fill="#ffb6d580" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,229.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <path fill="#ffb6d580" fill-opacity="1"
+                d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,229.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
         </svg>
 
     </section>
-<script>
-    document.getElementById('newsletter-form').addEventListener('submit', function(e){
-        e.preventDefault();
-        document.getElementById('newsletter-success').style.display = 'block';
-    });
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('newsletter-success').style.display = 'block';
+        });
 
-   
+
+    </script>
+    <div id="reviewModal" class="home-review-modal">
+        <div class="home-review-modal-content">
+            <span class="close" title="Cart" onclick="closeReviewModal()"></span>
+            <h3>🌟 How was your LushMuse experience?</h3>
+            <button><i
+                    class="fa-solid fa-cart-shopping" id="openReview" title="leave a review"></i></button>
+
+            <form action="" id="reviewForm">
+                <div id="reviewStep1">
+                    <label for="">
+                        <input type="radio" name="reviewExperience" value="good" required>
+                        Good, I cannot wait to come another day!
+                    </label>
+
+                    <br>
+
+                    <label for="">
+                        <input type="radio" name="reviewExperience" value="okay">
+                        It was okay, could be better.
+                    </label>
+
+                    <br>
+                    <label for="">
+                        <input type="radio" name="reviewExperience" value="bad">
+                        Not satisfied, needs improvement
+                    </label>
+
+                    <br>
+                    <button type="button" class="cta-btn-option" id="nextToReason">Next</button>
+
+                </div>
+
+
+                <div id="reviewStep2">
+                    <label for="reviewReason">
+                        Please tell us more about your experience
+                    </label>
+                    <textarea name="reviewReason" id="reviewReason" rows="3" required></textarea>
+
+                    <button type="submit" class="cta-btn-review">Submit</button>
+
+                </div>
+
+            </form>
+<div id="reviewThanks">
+    <strong>Thank you for your feedback!</strong>
+
+</div>
+        </div>
+
+    </div>
+
+    <script>
+        let selectedExperience = null;
+function showReviewModal() {
+  document.getElementById('reviewModal').style.display = 'flex';
+  document.getElementById('reviewForm').reset();
+  document.getElementById('reviewStep1').style.display = 'block';
+  document.getElementById('reviewStep2').style.display = 'none';
+  document.getElementById('reviewThanks').style.display = 'none';
+  document.getElementById('nextToReason').style.display = 'none';
+  selectedExperience = null;
+}
+document.getElementById('openReview').addEventListener('click', showReviewModal);
+if (localStorage.getItem('visitedProducts') === 'true') {
+    showReviewModal();
+localStorage.removeItem('visitedProducts');
+}
+
+function closeReviewModal() {
+  document.getElementById('reviewModal').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const radios = document.querySelectorAll('input[name="reviewExperience"]');
+  const nextBtn = document.getElementById('nextToReason');
+  let selectedExperience = null;
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      selectedExperience = this.value;
+      nextBtn.style.display = 'inline-block';
+    });
+  });
+
+  nextBtn.addEventListener('click', function() {
+    if(selectedExperience) {
+      document.getElementById('reviewStep1').style.display = 'none';
+      document.getElementById('reviewStep2').style.display = 'block';
+    }
+  });
+
+  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const reason = document.getElementById('reviewReason').value.trim();
+    if (!selectedExperience || !reason) {
+      alert('Please complete all steps.');
+      return;
+    }
+    document.getElementById('reviewForm').style.display = 'none';
+    document.getElementById('reviewThanks').style.display = 'block';
+    setTimeout(() => {
+      closeReviewModal();
+      document.getElementById('reviewForm').style.display = 'block';
+    }, 2000);
+  });
+});
+
+
 </script>
 
 
