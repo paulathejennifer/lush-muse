@@ -92,6 +92,26 @@ transition: color 0.2s;
     background-color:#b85985 ;
 }
 
+@keyframes pulse {
+    0%{
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(165, 0, 69, 0.7);
+    }
+
+      70%{
+        transform: scale(1.15);
+        box-shadow: 0 0 0 15px rgba(255, 182, 213, 0);
+    }
+
+      100%{
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 182, 213, 0);
+    }
+}
+.attention{
+    animation: pulse 1.2s infinite;
+    color: #ff69b4;
+}
         .fab-container {
             position: fixed;
             bottom: 20px;
@@ -121,6 +141,7 @@ transition: color 0.2s;
         }
         .main-fab{
             color: #333;
+            padding-right: 1cm;
         }
         .fab-container:hover .tip-fab {
             transform: translateY(-60px);
