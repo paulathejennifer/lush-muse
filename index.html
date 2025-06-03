@@ -9,14 +9,65 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
-    <link rel="icon" href="images/android-chrome-512x512.png" id="image">
+    <link rel="icon" href="images/favicon-16x16.png" id="image">
 </head>
 
 <body>
 
     <header class="main-header">
+
+
+    <div class="fab-container">
+        <button class="fab main-fab"><i class="fa-solid fa-bars"></i></button>
+        <button class="fab tip-fab" title="Beauty Tip" onclick="showRandomTip()"><i class="fa-solid fa-lightbulb"></i></button>
+        <button class="fab cart-fab" title="Cart" onclick="showReviewPrompt()"><i class="fa-solid fa-cart-shopping"></i></button>
+    </div>
+    <div id="tipModal" class="home-modal">
+        <div class="home-modal-content">
+            <span class="close" onclick="closeTipModal()">&times;</span>
+            <p id="tipText"></p>
+        </div>
+    </div>
+    <script>
+        const beautyTips = [
+            "Drink plenty of water for a glowing skin",
+            "Use a silk pillowcase to reduce hair frizz",
+            "Use a toner to balance your skin's pH",
+            "Store skincare in a cool, dry place",
+            "Always remove your makeup before sleeping",
+            "Use sunscreen daily, even when indoors",
+            "Moisturize your skin right after showering",
+            "Exfoliate twice a week for smooth skin",
+            "Get enough sleep - it's beauty sleep for a reason!",
+            "Eat fruits and veggies for healthy skin",
+            "Massage your face to boost blood circulation",
+            "Clean your makeup brushes weekly",
+            "Practice stress management - your skin will thank you!"
+        ];
+
+        function showRandomTip() {
+            const tip = beautyTips[Math.floor(Math.random() * beautyTips.length)];
+            document.getElementById('tipText').innerText = tip;
+            document.getElementById('tipModal').style.display = 'block';
+        }
+
+        function closeTipModal() {
+            document.getElementById('tipModal').style.display = 'none';
+        }
+
+        function showReviewPrompt() {
+            setTimeout(() => {
+                const reviewed = confirm("🌟 How was your LushMuse experience? We'd love your feedback!");
+                if (reviewed) {
+                    alert("Thanks for your review!");
+                }
+            }, 500)
+        }
+    </script>
+
         <div class="contact-icons">
  <a href="mailto:paulathejennifer@gmail.com" title="Email Us">
     <i class="fa-solid fa-envelope"></i>
@@ -52,6 +103,8 @@
         e.preventDefault();
         document.getElementById('newsletter-success').style.display = 'block';
     });
+
+   
 </script>
 </body>
 

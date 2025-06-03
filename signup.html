@@ -7,11 +7,16 @@
     <title>Create Account | LushMuse</title>
     <link rel="stylesheet" href="authentication.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Montserrat:700,400&display=swap" rel="stylesheet">
+     <link rel="icon" href="images/favicon-16x16.png" id="image">
 </head>
 
 <body>
-    <div class="authentication-conatiner">
+    <div class="authentication-container">
         <div class="authentication-image">
+            <div class="brand-name">
+                LushMuse
+
+            </div>
             <img src="images/girl.png" alt="Brand Visual">
 
 
@@ -19,7 +24,7 @@
 
         <div class="authentication-form">
             <h2 class="authentication-title">Create Account</h2>
-            <form action="">
+            <form action="" ondblclick="signUpForm">
                 <div class="input-row">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
@@ -77,5 +82,16 @@
 
     </div>
 </body>
+<script>
+    document.getElementById('signUpForm').addEventListener('submit', function(e){
+        const pw = document.getElementById('password').value;
+        const cpw = document.getElementById('confirmPassword').value;
 
+
+        if(pw !== cpw){
+            alert("Passwords do not match")
+            e.preventDefault();
+        }
+    });
+</script>
 </html>

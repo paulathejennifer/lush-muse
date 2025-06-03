@@ -60,9 +60,9 @@ transition: color 0.2s;
     padding-bottom: 2cm;
     animation-delay: 0.4s;
     font-size: 1.3rem;
-    max-width: 400px;
+    
     font-style: italic;
-    margin-left: 120px;
+
    
 }
 .hero-content h2,
@@ -91,6 +91,74 @@ transition: color 0.2s;
 .cta-btn:hover{
     background-color:#b85985 ;
 }
+
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .fab {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #eeb7ff;
+            color: white;
+            border: none;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .tip-fab,
+        .cart-fab {
+            opacity: 0;
+            pointer-events: auto;
+            position: absolute;
+            right: 0;
+            color: #333;
+        }
+        .main-fab{
+            color: #333;
+        }
+        .fab-container:hover .tip-fab {
+            transform: translateY(-60px);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .fab-container:hover .cart-fab {
+            transform: translateY(-120px);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .home-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .home-modal-content {
+            background-color: #fff;
+            font-family: "Edu SA Hand", cursive;
+            color: #333;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
 @keyframes fadeUp {
     from{
         opacity: 0;
