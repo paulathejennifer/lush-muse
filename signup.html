@@ -1,38 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LushMuse | SignUp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="authentication.css">
 </head>
+
 <body>
-    <div class="signup-container">
-        <div class="left-signup"></div>
-        <div class="right-signup">
-            <div class="form-box">
-                <h2>Create Account</h2>
-                <form action="" id="signupForm">
-                    <input type="text" id="signupUserName" placeholder="Username" required>
-                    <input type="password" id="signupPassword" placeholder="Password" required>
-                    <button type="submit">Sign Up</button>
-                </form>
+    <div class="bg-overlay"></div>
+    <div class="center-card">
+        <img src="images/girl.png" alt="Cover page image" class="logo">
+        <h2 id="createAccount">Create Account</h2>
+        <form action="" id="registrationForm">
+
+
+            <div class="input-group">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="firstName" placeholder="First Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="lastName" placeholder="Last Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" name="" id="email" placeholder="Email" required>
 
             </div>
+
+            <div class="input-group">
+                <i class="fa-regular fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-phone-volume"></i>
+                <input type="tel" id="phone" placeholder="Phone Number" required pattern="^\d{10,15}$">
+            </div>
+
+            <button type="submit" class="accent-btn">Create Account</button>
+            <div id="message">
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="spinner">
 
         </div>
 
     </div>
 
     <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e){
-e.preventDefault()
-const username = document.getElementById('signupUsername').value;
-const password = document.getElementById('signupPassword').value;
-localStorage.setItem('lushUser', JSON.stringify({username, password}));
-alert('Account created')
-window.location.href = 'login.html'
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const phone = document.getElementById('phone');
+            const message = document.getElementById('message');
+            const loader = document.getElementById('loaderOverlay');
+
+            if (!firstName || !lastName || !email || !password || !phone) {
+                message.textContent = "All fields are required!";
+                message.style.color = "#b50060";
+                return;
+            }
+
+            const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
+            if (!emailPattern.test(email)) {
+                message.textContent = "Please enter a valid email address."
+                message.style.color = "#b50060"
+                return;
+            }
+
+            if (password.length < 6) {
+                message.textContent = "Password must be at least 6 characters";
+                message.style.color = "#b50060";
+                return;
+            }
+
+            const phonePattern = /^\d{10,15}$/;
+            if (!phonePattern.test(phone)) {
+                message.textContent = "Please enter a valid phone number (10 - 15 digits)."
+                message.style.color = "#b50060"
+                return;
+            }
+
+            loader.classList.add('active')
+            message.textContent = "";
+
+            setTimeout(() => {
+                loader.classList.remove('active');
+                message.style.color = 'green';
+                message.textContent = "Registration successful!"
+                document.getElementById('registrationForm').reset()
+            }, 1800)
+
+
         })
     </script>
 </body>
+
+
+
+
 </html>
