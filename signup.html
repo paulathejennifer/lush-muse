@@ -7,12 +7,15 @@
     <title>LushMuse | SignUp</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="authentication.css">
+
+        <link rel="icon" href="images/favicon-16x16.png" id="image">
 </head>
 
 <body>
     <div class="bg-overlay"></div>
     <div class="center-card">
-        <img src="images/girl.png" alt="Cover page image" class="logo">
+        <a href="signup.html"><img src="images/girl.png" alt="Cover page image" class="logo"></a>
+
         <h2 id="createAccount">Create Account</h2>
         <form action="" id="registrationForm">
 
@@ -34,7 +37,7 @@
             </div>
 
             <div class="input-group">
-                <i class="fa-regular fa-lock"></i>
+                <i class="fa-regular fa-eye"></i>
                 <input type="password" id="password" placeholder="Password" required>
             </div>
 
@@ -65,11 +68,11 @@
         document.getElementById('registrationForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const firstName = document.getElementById('firstName');
-            const lastName = document.getElementById('lastName');
-            const email = document.getElementById('email');
-            const password = document.getElementById('password');
-            const phone = document.getElementById('phone');
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const phone = document.getElementById('phone').value.trim();
             const message = document.getElementById('message');
             const loader = document.getElementById('loaderOverlay');
 
@@ -107,10 +110,13 @@
                 message.style.color = 'green';
                 message.textContent = "Registration successful!"
                 document.getElementById('registrationForm').reset()
+               
             }, 1800)
 
-
+  window.location.href = "login.html"
         })
+
+  
     </script>
 </body>
 

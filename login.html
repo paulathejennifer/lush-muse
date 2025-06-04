@@ -1,121 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FAB Modal Example</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .fab-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        .fab {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #eeb7ff;
-            color: white;
-            border: none;
-            font-size: 24px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            margin: 10px 0;
-            cursor: pointer;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-        .tip-fab,
-        .cart-fab {
-            opacity: 0;
-            pointer-events: auto;
-            position: absolute;
-            right: 0;
-        }
-        .fab-container:hover .tip-fab {
-            transform: translateY(-60px);
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .fab-container:hover .cart-fab {
-            transform: translateY(-120px);
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .home-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-        .home-modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 12px;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-            font-size: 18px;
-        }
-        .close {
-            float: right;
-            font-size: 24px;
-            cursor: pointer;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LushMuse | LogIn</title>
+    <link rel="stylesheet" href="authentication.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="icon" href="images/favicon-16x16.png" id="image">
 </head>
 <body>
-    <div class="fab-container">
-        <button class="fab main-fab"><i class="fa-solid fa-bars"></i></button>
-        <button class="fab tip-fab" title="Beauty Tip" onclick="showRandomTip()"><i class="fa-solid fa-lightbulb"></i></button>
-        <button class="fab cart-fab" title="Cart" onclick="showReviewPrompt()"><i class="fa-solid fa-cart-shopping"></i></button>
+  <div class="bg-overlay"></div>
+    <div class="center-card">
+        <img src="images/girl.png" alt="Cover page image" class="logo">
+        <h2 id="loginTitle">Login</h2>
+        <form action="" id="loginForm">
+             <div class="input-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" name="" id="loginEmail" placeholder="Email" required>
+
+            </div>
+
+            <div class="input-group">
+                <i class="fa-regular fa-eye"></i>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="accent-btn">Login</button>
+            <div id="loginMessage"></div>
+        </form>
+
     </div>
-    <div id="tipModal" class="home-modal">
-        <div class="home-modal-content">
-            <span class="close" onclick="closeTipModal()">&times;</span>
-            <p id="tipText"></p>
-        </div>
+
+    <div class="loader-overlay" id="loginLoaderOverlay">
+        <div class="spinner"></div>
+
     </div>
     <script>
-        const beautyTips = [
-            "Drink plenty of water for a glowing skin",
-            "Use a silk pillowcase to reduce hair frizz",
-            "Use a toner to balance your skin's pH",
-            "Store skincare in a cool, dry place",
-            "Always remove your makeup before sleeping",
-            "Use sunscreen daily, even when indoors",
-            "Moisturize your skin right after showering",
-            "Exfoliate twice a week for smooth skin",
-            "Get enough sleep - it's beauty sleep for a reason!",
-            "Eat fruits and veggies for healthy skin",
-            "Massage your face to boost blood circulation",
-            "Clean your makeup brushes weekly",
-            "Practice stress management - your skin will thank you"
-        ];
+        document.getElementById('loginForm').addEventListener('submit', function(e){
+            e.preventDefault();
 
-        function showRandomTip() {
-            const tip = beautyTips[Math.floor(Math.random() * beautyTips.length)];
-            document.getElementById('tipText').innerText = tip;
-            document.getElementById('tipModal').style.display = 'block';
-        }
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+                  const message = document.getElementById('loginMessage');
+            const loader = document.getElementById('loginLoaderOverlay');
 
-        function closeTipModal() {
-            document.getElementById('tipModal').style.display = 'none';
-        }
+            if (!email || !password){
+                message.textContent = "All fields are required!"
+                message.style.color = "#b50060";
+                return;
+            }
 
-        function showReviewPrompt() {
+
+            const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
+            if (!emailPattern.test(email)) {
+                message.textContent = "Please enter a valid email address."
+                message.style.color = "#b50060"
+                return;
+            }
+
+                if (password.length < 6) {
+                message.textContent = "Password must be at least 6 characters";
+                message.style.color = "#b50060";
+                return;
+            }
+
+    
+            loader.classList.add('active')
+            message.textContent = "";
+
             setTimeout(() => {
-                const reviewed = confirm("🌟 How was your LushMuse experience? We'd love your feedback!");
-                if (reviewed) {
-                    alert("Thanks for your review!");
-                }
-            }, 500)
-        }
+                loader.classList.remove('active');
+                message.style.color = 'green';
+                message.textContent = "Login successful!"
+                document.getElementById('loginForm').reset()
+                 window.location.href = "index.html"
+            }, 300)
+
+
+        })
     </script>
+
+    
 </body>
 </html>

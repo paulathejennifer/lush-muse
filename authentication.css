@@ -45,6 +45,14 @@ letter-spacing: 0.03rem;
 
 }
 
+#loginTitle{
+margin: 0 0 2rem 0;
+font-weight: 600;
+color: #b50060;
+letter-spacing: 0.03rem;
+
+}
+
 form{
     width: 100%;
     display: flex;
