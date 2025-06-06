@@ -108,12 +108,18 @@
             setTimeout(() => {
                 loader.classList.remove('active');
                 message.style.color = 'green';
-                message.textContent = "Registration successful!"
+                message.textContent = "Registration successful! Redirecting..."
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userFirstName', firstName);
                 document.getElementById('registrationForm').reset()
-               
-            }, 1800)
-
+                setTimeout(()=>{
+                    
   window.location.href = "login.html"
+                }, 1200)
+               
+            }, 1800);
+
+
         })
 
   

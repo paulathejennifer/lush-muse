@@ -158,7 +158,15 @@
         </div>
 
     </div>
+<div class="bg-overlay">
+    <div class="welcome-card">
+        <h2>Welcome, <span id="userFirstName">!</span></h2>
+        <p>You have successfully logged in.</p>
+        <button class="logout-btn" onclick="logout()">Logout</button>
 
+    </div>
+
+</div>
     <script>
         let selectedExperience = null;
 function showReviewModal() {
@@ -214,6 +222,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 2000);
   });
 });
+
+if (!localStorage.getItem('userEmail')){
+    window.location.href = 'signup.html';
+}
+document.getElementById('userFirstName').textContent = localStorage.getItem('userFirstName') || 'User';
+
+
+function logout(){
+    localStorage.clear();
+    window.location.href = 'signup.html'
+}
 
 
 </script>

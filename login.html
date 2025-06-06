@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LushMuse | LogIn</title>
     <link rel="stylesheet" href="authentication.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-        <link rel="icon" href="images/favicon-16x16.png" id="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" href="images/favicon-16x16.png" id="image">
 </head>
+
 <body>
-  <div class="bg-overlay"></div>
+    <div class="bg-overlay"></div>
     <div class="center-card">
         <img src="images/girl.png" alt="Cover page image" class="logo">
         <h2 id="loginTitle">Login</h2>
         <form action="" id="loginForm">
-             <div class="input-group">
+            <div class="input-group">
                 <i class="fa-regular fa-envelope"></i>
                 <input type="email" name="" id="loginEmail" placeholder="Email" required>
 
@@ -36,15 +38,15 @@
 
     </div>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e){
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value.trim();
-                  const message = document.getElementById('loginMessage');
+            const message = document.getElementById('loginMessage');
             const loader = document.getElementById('loginLoaderOverlay');
 
-            if (!email || !password){
+            if (!email || !password) {
                 message.textContent = "All fields are required!"
                 message.style.color = "#b50060";
                 return;
@@ -58,28 +60,35 @@
                 return;
             }
 
-                if (password.length < 6) {
+            if (password.length < 6) {
                 message.textContent = "Password must be at least 6 characters";
                 message.style.color = "#b50060";
                 return;
             }
 
-    
+
             loader.classList.add('active')
             message.textContent = "";
 
             setTimeout(() => {
                 loader.classList.remove('active');
-                message.style.color = 'green';
-                message.textContent = "Login successful!"
-                document.getElementById('loginForm').reset()
-                 window.location.href = "index.html"
-            }, 300)
+                loginSuccess();
+            }, 1800);
 
+        });
+        function loginSuccess() {
+            const message = document.getElementById('loginMessage');
+            message.style.color = 'green';
+            message.textContent = "Login successful! Redirecting..."
+            document.getElementById('loginForm').reset();
+            setTimeout(() => {
+                window.location.href = "index.html"
+            }, 1200)
+        }
 
-        })
     </script>
 
-    
+
 </body>
+
 </html>
